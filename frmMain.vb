@@ -1,7 +1,6 @@
 ﻿Public Class frmMain
 
 #Region "Form"
-    Const CrLf As String = Chr(13) & Chr(10)
     Dim aboutBox As New frmAbout
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -112,15 +111,18 @@
 
 #Region "Byte <-> String"
     ''' <summary>
+    ''' Converts an array of bytes to a lowercase hex string
+    ''' </summary>
+    ''' <param name="bytes">The byte array</param>
+    Function BytesToHex(ByVal bytes As Byte()) As String
+        Return BitConverter.ToString(bytes).Replace("-"c, "").ToLower()
+    End Function
+
+    ''' <summary>
     ''' Converts an array of bytes to a string
     ''' </summary>
     ''' <param name="bytes">The byte array</param>
     Function BytesToString(ByVal bytes As Byte()) As String
-        'Dim out As String = Nothing
-        'For Each bytee In bytes
-        '    out &= Chr(CInt(bytee))
-        'Next
-        'Return out
         Return UnicodeEncoding.UTF8.GetString(bytes)
     End Function
 
@@ -223,7 +225,7 @@
             If Direction = CryptoAction.Decrypt Then fileToDelete = New FileInfo(strFileToDecrypt)
             fileToDelete.Delete()
             If Direction = CryptoAction.Encrypt Then
-                MsgBox("Encryption Complete" & CrLf & CrLf & "Total bytes processed: " & _
+                MsgBox("Encryption Complete" & Environment.NewLine & Environment.NewLine & "Total bytes processed: " & _
                 lngBytesProcessed, 64, "Done")
                 txtFileEncSource.Text = "Click Browse"
                 txtFileEncDest.Text = ""
@@ -232,7 +234,7 @@
                 btnFileEncDest.Enabled = False
                 btnFileEnc.Enabled = False
             Else
-                MsgBox("Decryption Complete" & CrLf & CrLf & "Total bytes processed: " & _
+                MsgBox("Decryption Complete" & Environment.NewLine & Environment.NewLine & "Total bytes processed: " & _
                 lngBytesProcessed.ToString, 64, "Done")
                 txtFileDecSource.Text = "Click Browse"
                 txtFileDecDest.Text = ""
@@ -292,7 +294,7 @@
     Private Sub btnFileEnc_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFileEnc.Click
         If txtFileEncCon.Text = txtFileEncPass.Text Or Not chkFile.Checked Then
             Dim fi As New FileInfo(strFileToEncrypt)
-			AesFileAction(strFileToEncrypt, txtFileEncDest.Text, CreateKey(txtFileEncPass.Text), CreateIV(txtFileEncPass.Text), CryptoAction.Encrypt)
+            AesFileAction(strFileToEncrypt, txtFileEncDest.Text, CreateKey(txtFileEncPass.Text), CreateIV(txtFileEncPass.Text), CryptoAction.Encrypt)
         Else
             MsgBox("Please re-enter your password", 48, "Password Mismatch")
             txtFileEncCon.Text = ""
@@ -394,38 +396,32 @@
 
 #Region "Hashes Tab"
     Private Sub txtHashSource_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtHashSource.TextChanged
-        txtInt.Text = txtHashSource.Text.GetHashCode.ToString ' Integer Hash Function
-        Dim bytes As Byte() = StringToBytes(txtHashSource.Text) ' Convert text source into byte array
-        Dim md5 As New MD5CryptoServiceProvider ' Instance of MD5 Object Class
-        Dim md5bytes As Byte() = md5.ComputeHash(bytes) ' Compute the hash
+        txtInt.Text = txtHashSource.Text.GetHashCode().ToString() ' .NET Integer Hash Function
+        Dim bytes As Byte() = StringToBytes(txtHashSource.Text) ' Convert text source into a byte array
+        Dim md5 As New MD5CryptoServiceProvider
+        Dim md5bytes As Byte() = md5.ComputeHash(bytes) ' Compute the MD5 hash
         md5.Clear() ' Clear the resources used
-        txtMD5.Text = "" ' Clear MD5 text Result
-        For Each md5byte As Byte In md5bytes
-            txtMD5.Text &= md5byte.ToString("x").PadLeft(2, "0"c)
-        Next
-        toggleHashB64(Me, Nothing)
+        txtMD5.Text = BytesToHex(md5bytes) ' Show the hash
+        toggleHashB64(Me, Nothing) ' Compute SHA hashes
     End Sub
 
     Private Sub toggleHashB64(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkHash64.CheckedChanged
         Dim bytes As Byte() = StringToBytes(txtHashSource.Text) ' Convert text source into byte array
         Dim shaenc1 As New SHA1Managed ' SHA1
-
+        Dim shaenc384 As New SHA384Managed ' SHA384
+        Dim shaenc512 As New SHA512Managed ' SHA512
+        Dim shaenc256 As New SHA256Managed ' SHA256
         If chkHash64.Checked Then
             txtsha1.Text = Convert.ToBase64String(shaenc1.ComputeHash(bytes))
-        Else : txtsha1.Text = BytesToString(shaenc1.ComputeHash(bytes))
+            txtsha256.Text = Convert.ToBase64String(shaenc256.ComputeHash(bytes))
+            txtsha384.Text = Convert.ToBase64String(shaenc384.ComputeHash(bytes))
+            txtsha512.Text = Convert.ToBase64String(shaenc512.ComputeHash(bytes))
+        Else
+            txtsha1.Text = BytesToHex(shaenc1.ComputeHash(bytes))
+            txtsha256.Text = BytesToHex(shaenc256.ComputeHash(bytes))
+            txtsha384.Text = BytesToHex(shaenc384.ComputeHash(bytes))
+            txtsha512.Text = BytesToHex(shaenc512.ComputeHash(bytes))
         End If
-		Dim shaenc384 As New SHA384Managed ' SHA384
-		Dim shaenc512 As New SHA512Managed ' SHA512
-		Dim shaenc256 As New SHA256Managed ' SHA256
-		If chkHash64.Checked Then
-			txtsha256.Text = Convert.ToBase64String(shaenc256.ComputeHash(bytes))
-			txtsha384.Text = Convert.ToBase64String(shaenc384.ComputeHash(bytes))
-			txtsha512.Text = Convert.ToBase64String(shaenc512.ComputeHash(bytes))
-		Else
-			txtsha256.Text = BytesToString(shaenc256.ComputeHash(bytes))
-			txtsha384.Text = BytesToString(shaenc384.ComputeHash(bytes))
-			txtsha512.Text = BytesToString(shaenc512.ComputeHash(bytes))
-		End If
     End Sub
 #End Region
 
@@ -464,29 +460,26 @@
         ElseIf Char.IsUpper(_chr) Then
             alpha = alpha.ToUpper
         End If
-        If Index + amount > 25 Then
-            Index -= 26
-        End If
-        Return alpha.Chars(Index + amount)
+        Return alpha.Chars((Index + amount) Mod 26)
     End Function
 #End Region
 
 #Region "Unsecure Tab"
     Private Sub btnUnsecEncode_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUnsecEncode.Click
-        Dim buffer As String = "==Channel " & numUnsec.Value & "==" & CrLf
+        Dim buffer As String = "==Type " & numUnsec.Value & "==" & Environment.NewLine
         Dim buffer2 As String = Nothing
         For Each _chr In txtUnsecSource.Text
             buffer2 &= ChrW(AscW(_chr) + numUnsec.Value)
         Next
-        buffer &= Convert.ToBase64String(StringToBytes(buffer2)) & CrLf & "==End Data=="
+        buffer &= Convert.ToBase64String(StringToBytes(buffer2)) & Environment.NewLine & "==End Data=="
         txtUnsecEncoded.Text = buffer
     End Sub
 
     Private Sub btnUnsecDecode_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnUnsecDecode.Click
         Try
-            Dim key As Integer = txtUnsecEncoded.Text.Substring(10, 1)
+            Dim key As Integer = txtUnsecEncoded.Text.Substring(7, 1) ' "==Type " is 7 chars long
             Dim buffer As String = BytesToString(Convert.FromBase64String( _
-            txtUnsecEncoded.Text.Substring(14, txtUnsecEncoded.TextLength - 26)))
+            txtUnsecEncoded.Text.Substring(12, txtUnsecEncoded.TextLength - 26))) ' 7 + # + == + Environment.NewLine = 7 + 5 = 12
             txtUnsecSource.Text = Nothing
             For Each _chr In buffer
                 txtUnsecSource.Text &= ChrW(AscW(_chr) - key)

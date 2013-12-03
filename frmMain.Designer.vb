@@ -947,8 +947,6 @@ Partial Class frmMain
         '
         Me.chkHash64.Appearance = System.Windows.Forms.Appearance.Button
         Me.chkHash64.AutoSize = True
-        Me.chkHash64.Checked = True
-        Me.chkHash64.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkHash64.Location = New System.Drawing.Point(435, 298)
         Me.chkHash64.Name = "chkHash64"
         Me.chkHash64.Size = New System.Drawing.Size(78, 30)
@@ -1146,9 +1144,9 @@ Partial Class frmMain
         Me.lblROTe.Location = New System.Drawing.Point(367, 9)
         Me.lblROTe.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblROTe.Name = "lblROTe"
-        Me.lblROTe.Size = New System.Drawing.Size(73, 20)
+        Me.lblROTe.Size = New System.Drawing.Size(103, 20)
         Me.lblROTe.TabIndex = 9
-        Me.lblROTe.Text = "Encoded"
+        Me.lblROTe.Text = "Transformed:"
         '
         'txtROTe
         '
@@ -1167,9 +1165,9 @@ Partial Class frmMain
         Me.lblROTs.Location = New System.Drawing.Point(9, 9)
         Me.lblROTs.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblROTs.Name = "lblROTs"
-        Me.lblROTs.Size = New System.Drawing.Size(60, 20)
+        Me.lblROTs.Size = New System.Drawing.Size(169, 20)
         Me.lblROTs.TabIndex = 7
-        Me.lblROTs.Text = "Source"
+        Me.lblROTs.Text = "Source [Skip] {Inverse}"
         '
         'txtROTs
         '
@@ -1236,9 +1234,9 @@ Partial Class frmMain
         Me.lblUnsecp.Location = New System.Drawing.Point(9, 14)
         Me.lblUnsecp.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblUnsecp.Name = "lblUnsecp"
-        Me.lblUnsecp.Size = New System.Drawing.Size(157, 20)
+        Me.lblUnsecp.Size = New System.Drawing.Size(259, 20)
         Me.lblUnsecp.TabIndex = 13
-        Me.lblUnsecp.Text = "Decoded (Plain-Text)"
+        Me.lblUnsecp.Text = "Decoded (Plain-Text, use Alphabet)"
         '
         'txtUnsecSource
         '
@@ -1368,7 +1366,6 @@ Partial Class frmMain
         '
         'tsLuhn
         '
-        Me.tsLuhn.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tslLuhnTs, Me.tssLuhn1, Me.tsSBvalid, Me.tsSBinvalid})
         Me.tsLuhn.Location = New System.Drawing.Point(0, 0)
         Me.tsLuhn.Name = "tsLuhn"
         Me.tsLuhn.Size = New System.Drawing.Size(725, 26)
@@ -1419,7 +1416,6 @@ Partial Class frmMain
         '
         'statstrip
         '
-        Me.statstrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmAbout, Me.progress})
         Me.statstrip.Location = New System.Drawing.Point(0, 373)
         Me.statstrip.Name = "statstrip"
         Me.statstrip.Padding = New System.Windows.Forms.Padding(1, 0, 18, 0)
