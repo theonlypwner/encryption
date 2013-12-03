@@ -1366,6 +1366,7 @@ Partial Class frmMain
         '
         'tsLuhn
         '
+        Me.tsLuhn.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tslLuhnTs, Me.tssLuhn1, Me.tsSBvalid, Me.tsSBinvalid})
         Me.tsLuhn.Location = New System.Drawing.Point(0, 0)
         Me.tsLuhn.Name = "tsLuhn"
         Me.tsLuhn.Size = New System.Drawing.Size(725, 26)
@@ -1416,6 +1417,7 @@ Partial Class frmMain
         '
         'statstrip
         '
+        Me.statstrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmAbout, Me.progress})
         Me.statstrip.Location = New System.Drawing.Point(0, 373)
         Me.statstrip.Name = "statstrip"
         Me.statstrip.Padding = New System.Windows.Forms.Padding(1, 0, 18, 0)
