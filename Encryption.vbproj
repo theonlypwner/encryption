@@ -17,7 +17,7 @@
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
-    <ApplicationIcon>Resources\lock.ico</ApplicationIcon>
+    <ApplicationIcon>lock.ico</ApplicationIcon>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
     <FileUpgradeFlags>
@@ -156,7 +156,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\lock.ico" />
+    <Content Include="lock.ico" />
     <None Include="My Project\app.manifest" />
   </ItemGroup>
   <ItemGroup>
