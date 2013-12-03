@@ -144,35 +144,6 @@ Partial Class frmMain
         Me.tsCBinvalid = New System.Windows.Forms.ToolStripComboBox()
         Me.statstrip = New System.Windows.Forms.StatusStrip()
         Me.cmAbout = New System.Windows.Forms.ToolStripSplitButton()
-        Me.cmFeatures = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmFree = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmMD5 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmInt = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmUVT = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmAES = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmAESfile = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmAEStext = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmB64 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmB64E = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmB64D = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmB64r = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmSHA = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmSHA1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmSHA256 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmSHA384 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmSHA512 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmROT = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmROT13 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmROTn = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmLuhn = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmLuhnVerify = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmLuhnGen = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmLuhnGenInvalid = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmLuhnGenValid = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmPassword = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmAboutLicence = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmALFull = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmALt = New System.Windows.Forms.ToolStripMenuItem()
         Me.OptimizedForToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowsXPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DPI100125ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -1460,226 +1431,13 @@ Partial Class frmMain
         '
         'cmAbout
         '
-        Me.cmAbout.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmFeatures, Me.cmAboutLicence, Me.OptimizedForToolStripMenuItem})
+        Me.cmAbout.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptimizedForToolStripMenuItem})
         Me.cmAbout.Image = CType(resources.GetObject("cmAbout.Image"), System.Drawing.Image)
         Me.cmAbout.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.cmAbout.Name = "cmAbout"
         Me.cmAbout.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.cmAbout.Size = New System.Drawing.Size(79, 23)
         Me.cmAbout.Text = "About"
-        '
-        'cmFeatures
-        '
-        Me.cmFeatures.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmFree, Me.cmAES, Me.cmB64, Me.cmSHA, Me.cmROT, Me.cmLuhn, Me.cmPassword})
-        Me.cmFeatures.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmFeatures.Name = "cmFeatures"
-        Me.cmFeatures.Size = New System.Drawing.Size(156, 24)
-        Me.cmFeatures.Text = "Features"
-        '
-        'cmFree
-        '
-        Me.cmFree.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmMD5, Me.cmInt, Me.cmUVT})
-        Me.cmFree.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmFree.Name = "cmFree"
-        Me.cmFree.Size = New System.Drawing.Size(157, 24)
-        Me.cmFree.Text = "Simple"
-        '
-        'cmMD5
-        '
-        Me.cmMD5.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmMD5.Name = "cmMD5"
-        Me.cmMD5.Size = New System.Drawing.Size(157, 24)
-        Me.cmMD5.Text = "MD5"
-        '
-        'cmInt
-        '
-        Me.cmInt.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmInt.Name = "cmInt"
-        Me.cmInt.Size = New System.Drawing.Size(157, 24)
-        Me.cmInt.Text = "Integer Hash"
-        '
-        'cmUVT
-        '
-        Me.cmUVT.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmUVT.Name = "cmUVT"
-        Me.cmUVT.Size = New System.Drawing.Size(157, 24)
-        Me.cmUVT.Text = "Unsecure"
-        '
-        'cmAES
-        '
-        Me.cmAES.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmAESfile, Me.cmAEStext})
-        Me.cmAES.Image = CType(resources.GetObject("cmAES.Image"), System.Drawing.Image)
-        Me.cmAES.Name = "cmAES"
-        Me.cmAES.Size = New System.Drawing.Size(157, 24)
-        Me.cmAES.Text = "AES"
-        '
-        'cmAESfile
-        '
-        Me.cmAESfile.Image = CType(resources.GetObject("cmAESfile.Image"), System.Drawing.Image)
-        Me.cmAESfile.Name = "cmAESfile"
-        Me.cmAESfile.Size = New System.Drawing.Size(103, 24)
-        Me.cmAESfile.Text = "File"
-        '
-        'cmAEStext
-        '
-        Me.cmAEStext.Image = CType(resources.GetObject("cmAEStext.Image"), System.Drawing.Image)
-        Me.cmAEStext.Name = "cmAEStext"
-        Me.cmAEStext.Size = New System.Drawing.Size(103, 24)
-        Me.cmAEStext.Text = "Text"
-        '
-        'cmB64
-        '
-        Me.cmB64.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmB64E, Me.cmB64D, Me.cmB64r})
-        Me.cmB64.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmB64.Name = "cmB64"
-        Me.cmB64.Size = New System.Drawing.Size(157, 24)
-        Me.cmB64.Text = "Base 64"
-        '
-        'cmB64E
-        '
-        Me.cmB64E.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmB64E.Name = "cmB64E"
-        Me.cmB64E.Size = New System.Drawing.Size(124, 24)
-        Me.cmB64E.Text = "Encode"
-        '
-        'cmB64D
-        '
-        Me.cmB64D.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmB64D.Name = "cmB64D"
-        Me.cmB64D.Size = New System.Drawing.Size(124, 24)
-        Me.cmB64D.Text = "Decode"
-        '
-        'cmB64r
-        '
-        Me.cmB64r.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmB64r.Name = "cmB64r"
-        Me.cmB64r.Size = New System.Drawing.Size(124, 24)
-        Me.cmB64r.Text = "Multi"
-        '
-        'cmSHA
-        '
-        Me.cmSHA.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmSHA1, Me.cmSHA256, Me.cmSHA384, Me.cmSHA512})
-        Me.cmSHA.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmSHA.Name = "cmSHA"
-        Me.cmSHA.Size = New System.Drawing.Size(157, 24)
-        Me.cmSHA.Text = "SHA"
-        '
-        'cmSHA1
-        '
-        Me.cmSHA1.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmSHA1.Name = "cmSHA1"
-        Me.cmSHA1.Size = New System.Drawing.Size(102, 24)
-        Me.cmSHA1.Text = "1"
-        '
-        'cmSHA256
-        '
-        Me.cmSHA256.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmSHA256.Name = "cmSHA256"
-        Me.cmSHA256.Size = New System.Drawing.Size(102, 24)
-        Me.cmSHA256.Text = "256"
-        '
-        'cmSHA384
-        '
-        Me.cmSHA384.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmSHA384.Name = "cmSHA384"
-        Me.cmSHA384.Size = New System.Drawing.Size(102, 24)
-        Me.cmSHA384.Text = "384"
-        '
-        'cmSHA512
-        '
-        Me.cmSHA512.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmSHA512.Name = "cmSHA512"
-        Me.cmSHA512.Size = New System.Drawing.Size(102, 24)
-        Me.cmSHA512.Text = "512"
-        '
-        'cmROT
-        '
-        Me.cmROT.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmROT13, Me.cmROTn})
-        Me.cmROT.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmROT.Name = "cmROT"
-        Me.cmROT.Size = New System.Drawing.Size(157, 24)
-        Me.cmROT.Text = "Rotate Alpha"
-        '
-        'cmROT13
-        '
-        Me.cmROT13.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmROT13.Name = "cmROT13"
-        Me.cmROT13.Size = New System.Drawing.Size(121, 24)
-        Me.cmROT13.Text = "13"
-        '
-        'cmROTn
-        '
-        Me.cmROTn.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmROTn.Name = "cmROTn"
-        Me.cmROTn.Size = New System.Drawing.Size(121, 24)
-        Me.cmROTn.Text = "Not 13"
-        '
-        'cmLuhn
-        '
-        Me.cmLuhn.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmLuhnVerify, Me.cmLuhnGen})
-        Me.cmLuhn.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmLuhn.Name = "cmLuhn"
-        Me.cmLuhn.Size = New System.Drawing.Size(157, 24)
-        Me.cmLuhn.Text = "Luhn"
-        '
-        'cmLuhnVerify
-        '
-        Me.cmLuhnVerify.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmLuhnVerify.Name = "cmLuhnVerify"
-        Me.cmLuhnVerify.Size = New System.Drawing.Size(134, 24)
-        Me.cmLuhnVerify.Text = "Verify"
-        '
-        'cmLuhnGen
-        '
-        Me.cmLuhnGen.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmLuhnGenInvalid, Me.cmLuhnGenValid})
-        Me.cmLuhnGen.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmLuhnGen.Name = "cmLuhnGen"
-        Me.cmLuhnGen.Size = New System.Drawing.Size(134, 24)
-        Me.cmLuhnGen.Text = "Generate"
-        '
-        'cmLuhnGenInvalid
-        '
-        Me.cmLuhnGenInvalid.Image = CType(resources.GetObject("cmLuhnGenInvalid.Image"), System.Drawing.Image)
-        Me.cmLuhnGenInvalid.Name = "cmLuhnGenInvalid"
-        Me.cmLuhnGenInvalid.Size = New System.Drawing.Size(118, 24)
-        Me.cmLuhnGenInvalid.Text = "Invalid"
-        '
-        'cmLuhnGenValid
-        '
-        Me.cmLuhnGenValid.Image = CType(resources.GetObject("cmLuhnGenValid.Image"), System.Drawing.Image)
-        Me.cmLuhnGenValid.Name = "cmLuhnGenValid"
-        Me.cmLuhnGenValid.Size = New System.Drawing.Size(118, 24)
-        Me.cmLuhnGenValid.Text = "Valid"
-        '
-        'cmPassword
-        '
-        Me.cmPassword.Image = Global.Encryption.My.Resources.Resources.full
-        Me.cmPassword.Name = "cmPassword"
-        Me.cmPassword.Size = New System.Drawing.Size(157, 24)
-        Me.cmPassword.Text = "Pass Mask"
-        '
-        'cmAboutLicence
-        '
-        Me.cmAboutLicence.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmALFull, Me.cmALt})
-        Me.cmAboutLicence.Image = CType(resources.GetObject("cmAboutLicence.Image"), System.Drawing.Image)
-        Me.cmAboutLicence.Name = "cmAboutLicence"
-        Me.cmAboutLicence.Size = New System.Drawing.Size(156, 24)
-        Me.cmAboutLicence.Text = "Licence"
-        '
-        'cmALFull
-        '
-        Me.cmALFull.Image = CType(resources.GetObject("cmALFull.Image"), System.Drawing.Image)
-        Me.cmALFull.Name = "cmALFull"
-        Me.cmALFull.Size = New System.Drawing.Size(220, 24)
-        Me.cmALFull.Text = "Full"
-        '
-        'cmALt
-        '
-        Me.cmALt.Enabled = False
-        Me.cmALt.Image = CType(resources.GetObject("cmALt.Image"), System.Drawing.Image)
-        Me.cmALt.Name = "cmALt"
-        Me.cmALt.Size = New System.Drawing.Size(220, 24)
-        Me.cmALt.Text = "TRIAL - Please upgrade"
         '
         'OptimizedForToolStripMenuItem
         '
@@ -1821,37 +1579,13 @@ Partial Class frmMain
     Friend WithEvents PgROT13 As System.Windows.Forms.TabPage
     Friend WithEvents PgFile As System.Windows.Forms.TabPage
     Friend WithEvents cmAbout As System.Windows.Forms.ToolStripSplitButton
-    Friend WithEvents cmAboutLicence As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmALFull As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmALt As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmFeatures As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmPassword As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmSHA As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmSHA1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmSHA256 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmSHA384 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmSHA512 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmROT As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmROT13 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmROTn As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents lblROTe As System.Windows.Forms.Label
     Friend WithEvents txtROTe As System.Windows.Forms.TextBox
     Friend WithEvents lblROTs As System.Windows.Forms.Label
     Friend WithEvents txtROTs As System.Windows.Forms.TextBox
     Friend WithEvents numROTn As System.Windows.Forms.NumericUpDown
-    Friend WithEvents cmFree As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmUVT As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmInt As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmMD5 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmAES As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmAESfile As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmAEStext As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents numB64rounds As System.Windows.Forms.NumericUpDown
     Friend WithEvents chkHashSource As System.Windows.Forms.CheckBox
-    Friend WithEvents cmB64 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmB64E As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmB64D As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmB64r As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents cmsReadOnly As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents cmdReadOnlyCopy As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents cmReadonlyCopyAll As System.Windows.Forms.ToolStripMenuItem
@@ -1896,11 +1630,6 @@ Partial Class frmMain
     Friend WithEvents grpCalculations As System.Windows.Forms.GroupBox
     Friend WithEvents lblLuhnNum As System.Windows.Forms.Label
     Friend WithEvents lblLuhnExp As System.Windows.Forms.Label
-    Friend WithEvents cmLuhn As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmLuhnVerify As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmLuhnGen As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmLuhnGenInvalid As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmLuhnGenValid As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents progress As System.Windows.Forms.ToolStripProgressBar
     Friend WithEvents PgUnSecure As System.Windows.Forms.TabPage
     Friend WithEvents numUnsec As System.Windows.Forms.NumericUpDown

@@ -158,9 +158,6 @@
   <ItemGroup>
     <Content Include="Resources\lock.ico" />
     <None Include="My Project\app.manifest" />
-    <None Include="Resources\error.png" />
-    <None Include="Resources\exclamation.png" />
-    <None Include="Resources\accept.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
