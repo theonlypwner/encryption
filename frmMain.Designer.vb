@@ -1327,7 +1327,7 @@ Partial Class frmMain
         'lblLuhnExp
         '
         Me.lblLuhnExp.AutoSize = True
-        Me.lblLuhnExp.Location = New System.Drawing.Point(21, 57)
+        Me.lblLuhnExp.Location = New System.Drawing.Point(44, 61)
         Me.lblLuhnExp.Name = "lblLuhnExp"
         Me.lblLuhnExp.Size = New System.Drawing.Size(555, 120)
         Me.lblLuhnExp.TabIndex = 1
@@ -1340,9 +1340,9 @@ Partial Class frmMain
         Me.lblLuhnNum.ForeColor = System.Drawing.Color.GreenYellow
         Me.lblLuhnNum.Location = New System.Drawing.Point(296, 15)
         Me.lblLuhnNum.Name = "lblLuhnNum"
-        Me.lblLuhnNum.Size = New System.Drawing.Size(95, 33)
+        Me.lblLuhnNum.Size = New System.Drawing.Size(106, 33)
         Me.lblLuhnNum.TabIndex = 0
-        Me.lblLuhnNum.Text = "1234567&9"
+        Me.lblLuhnNum.Text = "12345678&2"
         '
         'grpNumber
         '

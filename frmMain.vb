@@ -500,11 +500,14 @@
         Dim rand As New Random
         Dim buffer As String = Nothing
         ' Make a random number
-        For i = 1 To CInt(tsCBinvalid.Text)
+        For i = 2 To CInt(tsCBvalid.Text)
             buffer &= rand.Next(0, 9)
         Next
-        Dim check As Integer = Luhn(buffer)
-        txtLuhnNumber.Text = buffer.Substring(0, buffer.Length - 1) + check
+        Dim check As Integer = 10 - Luhn(buffer & "0")
+        If check = 10 Then
+            check = 0
+        End If
+        txtLuhnNumber.Text = buffer & check
         Luhn(txtLuhnNumber.Text)
     End Sub
 
@@ -512,33 +515,38 @@
         Dim rand As New Random
         Dim buffer As String = Nothing
         ' Make a random number
-        For i = 1 To CInt(tsCBinvalid.Text)
+        For i = 2 To CInt(tsCBinvalid.Text)
             buffer &= rand.Next(0, 9)
         Next
-        Dim check As Integer = Luhn(buffer)
-        txtLuhnNumber.Text = buffer.Substring(0, buffer.Length - 1) + check
+        Dim check_disallowed As Integer = 10 - Luhn(buffer & "0")
+        If check_disallowed = 10 Then
+            check_disallowed = 0
+        End If
+        ' Generate some other digit
+        Dim check As Integer = rand.Next(0, 8)
+        If check >= check_disallowed Then
+            check += 1
+        End If
+        txtLuhnNumber.Text = buffer & check
         Luhn(txtLuhnNumber.Text)
     End Sub
 
     Private DoubleDigitalRootTable() As Integer = {0, 2, 4, 6, 8, 1, 3, 5, 7, 9}
 
     Function Luhn(ByVal numbers As String) As Integer
-        Dim sum As Integer = 0
+        Dim sum As Integer = numbers.Chars(numbers.Length - 1).ToString
         Dim toggle = False
-        For i = 1 To numbers.Length
+        For i = 2 To numbers.Length
             Dim cd = numbers.Chars(numbers.Length - i)
-            If Char.IsDigit(cd) Then
-                Dim number As Integer = cd.ToString
-                toggle = Not toggle
-                If toggle Then
-                    number = DoubleDigitalRootTable(number)
-                End If
-                sum += number
+            Dim number As Integer = cd.ToString
+            toggle = Not toggle
+            If toggle Then
+                number = DoubleDigitalRootTable(number)
             End If
+            sum += number
         Next
         LuhnResults(sum)
-        sum = sum Mod 10
-        Return sum
+        Return sum Mod 10
     End Function
 
     Sub LuhnResults(ByVal int As Integer)
