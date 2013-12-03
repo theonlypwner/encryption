@@ -497,37 +497,27 @@
     End Sub
 
     Private Sub tsSBvalid_ButtonClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsSBvalid.ButtonClick
-        Dim done As Boolean = False
         Dim rand As New Random
         Dim buffer As String = Nothing
-        While Not done
-            For i = 1 To CInt(tsCBvalid.Text)
-                buffer &= rand.Next(0, 9)
-            Next
-            If Luhn(buffer) = 0 Then
-                done = True
-            Else
-                buffer = Nothing
-            End If
-        End While
-        txtLuhnNumber.Text = buffer
+        ' Make a random number
+        For i = 1 To CInt(tsCBinvalid.Text)
+            buffer &= rand.Next(0, 9)
+        Next
+        Dim check As Integer = Luhn(buffer)
+        txtLuhnNumber.Text = buffer.Substring(0, buffer.Length - 1) + check
+        Luhn(txtLuhnNumber.Text)
     End Sub
 
     Private Sub tsSBinvalid_ButtonClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tsSBinvalid.ButtonClick
-        Dim done As Boolean = False
         Dim rand As New Random
         Dim buffer As String = Nothing
-        While Not done
-            For i = 1 To CInt(tsCBinvalid.Text)
-                buffer &= rand.Next(0, 9)
-            Next
-            If Luhn(buffer) > 0 Then
-                done = True
-            Else
-                buffer = Nothing
-            End If
-        End While
-        txtLuhnNumber.Text = buffer
+        ' Make a random number
+        For i = 1 To CInt(tsCBinvalid.Text)
+            buffer &= rand.Next(0, 9)
+        Next
+        Dim check As Integer = Luhn(buffer)
+        txtLuhnNumber.Text = buffer.Substring(0, buffer.Length - 1) + check
+        Luhn(txtLuhnNumber.Text)
     End Sub
 
     Private DoubleDigitalRootTable() As Integer = {0, 2, 4, 6, 8, 1, 3, 5, 7, 9}
