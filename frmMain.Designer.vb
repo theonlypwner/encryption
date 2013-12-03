@@ -262,11 +262,11 @@ Partial Class frmMain
         'lblLuhm
         '
         Me.lblLuhm.AutoSize = True
-        Me.lblLuhm.Location = New System.Drawing.Point(35, 44)
+        Me.lblLuhm.Location = New System.Drawing.Point(40, 46)
         Me.lblLuhm.Name = "lblLuhm"
-        Me.lblLuhm.Size = New System.Drawing.Size(181, 60)
+        Me.lblLuhm.Size = New System.Drawing.Size(157, 80)
         Me.lblLuhm.TabIndex = 1
-        Me.lblLuhm.Text = "Luhn Algorithm" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "checker, which is used" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "for checking credit cards"
+        Me.lblLuhm.Text = "Check a number with" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "the Luhn Algorithm," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "used for validating" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "credit cards"
         Me.lblLuhm.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'grpUnsec
@@ -282,12 +282,11 @@ Partial Class frmMain
         'lblUnsec
         '
         Me.lblUnsec.AutoSize = True
-        Me.lblUnsec.Location = New System.Drawing.Point(35, 44)
+        Me.lblUnsec.Location = New System.Drawing.Point(53, 46)
         Me.lblUnsec.Name = "lblUnsec"
-        Me.lblUnsec.Size = New System.Drawing.Size(185, 80)
+        Me.lblUnsec.Size = New System.Drawing.Size(131, 80)
         Me.lblUnsec.TabIndex = 1
-        Me.lblUnsec.Text = "Encodes/Encrypts your" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "text into 9 different ways" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "that all decodes/decrypts" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "bac" & _
-    "k to the same thing"
+        Me.lblUnsec.Text = "Encodes text in" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "9 different ways," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "which all decode" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "back to the same"
         Me.lblUnsec.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'grpROT
@@ -303,7 +302,7 @@ Partial Class frmMain
         'lblROT
         '
         Me.lblROT.AutoSize = True
-        Me.lblROT.Location = New System.Drawing.Point(33, 43)
+        Me.lblROT.Location = New System.Drawing.Point(32, 46)
         Me.lblROT.Name = "lblROT"
         Me.lblROT.Size = New System.Drawing.Size(173, 80)
         Me.lblROT.TabIndex = 1
@@ -324,7 +323,7 @@ Partial Class frmMain
         'lblHashes
         '
         Me.lblHashes.AutoSize = True
-        Me.lblHashes.Location = New System.Drawing.Point(35, 47)
+        Me.lblHashes.Location = New System.Drawing.Point(17, 56)
         Me.lblHashes.Name = "lblHashes"
         Me.lblHashes.Size = New System.Drawing.Size(202, 60)
         Me.lblHashes.TabIndex = 1
@@ -344,11 +343,11 @@ Partial Class frmMain
         'lblB64
         '
         Me.lblB64.AutoSize = True
-        Me.lblB64.Location = New System.Drawing.Point(53, 47)
+        Me.lblB64.Location = New System.Drawing.Point(56, 56)
         Me.lblB64.Name = "lblB64"
-        Me.lblB64.Size = New System.Drawing.Size(155, 60)
+        Me.lblB64.Size = New System.Drawing.Size(124, 60)
         Me.lblB64.TabIndex = 1
-        Me.lblB64.Text = "Encode and Decode" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Base 64" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "multiple times"
+        Me.lblB64.Text = "Encode/Decode" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Base 64" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(multiple times)"
         Me.lblB64.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'grpAES
@@ -364,11 +363,11 @@ Partial Class frmMain
         'lblAES
         '
         Me.lblAES.AutoSize = True
-        Me.lblAES.Location = New System.Drawing.Point(39, 51)
+        Me.lblAES.Location = New System.Drawing.Point(36, 56)
         Me.lblAES.Name = "lblAES"
-        Me.lblAES.Size = New System.Drawing.Size(168, 40)
+        Me.lblAES.Size = New System.Drawing.Size(165, 60)
         Me.lblAES.TabIndex = 0
-        Me.lblAES.Text = "AES can be encrypted" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "for both text and files"
+        Me.lblAES.Text = "AES (Rijndael) can be" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "used to encrypt both" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "text and files"
         Me.lblAES.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'PgFile
